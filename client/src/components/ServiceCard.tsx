@@ -4,14 +4,22 @@ import { useState } from "react";
 
 interface ServiceCardProps {
   service: {
+    id: string;
     icon: LucideIcon;
     title: string;
     description: string;
   };
+  onServiceClick?: (serviceId: string) => void;
 }
 
-export default function ServiceCard({ service }: ServiceCardProps) {
+export default function ServiceCard({ service, onServiceClick }: ServiceCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleClick = () => {
+    if (onServiceClick) {
+      onServiceClick(service.id);
+    }
+  };
 
   return (
     <Card
@@ -21,6 +29,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}
       onTouchStart={() => setIsExpanded(!isExpanded)}
+      onClick={handleClick}
     >
       <CardContent className="p-6">
         <service.icon

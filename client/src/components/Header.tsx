@@ -61,10 +61,23 @@ export default function Header() {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
             <Button
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector("#calculadora");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+            >
+              Conheça Nossos Serviços
+            </Button>
+            <Button
               onClick={handleRevendaClick}
               size="lg"
               variant="outline"
-              className="border-primary text-primary hover:bg-primary/10"
+              className="border-secondary text-secondary hover:bg-secondary/10"
             >
               Quero REVENDER
             </Button>

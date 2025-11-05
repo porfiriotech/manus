@@ -52,3 +52,7 @@
 - [x] Botão de orçamento enviar dados via WhatsApp
 - [x] Substituir logo por logomarca real do Político Eleito
 - [x] Adicionar botão "Quero REVENDER as soluções" no header
+
+## Correções
+- [x] Cards de serviços devem redirecionar para calculadora com item pré-selecionado
+- [x] Reorganizar botões do header: manter "Conheça Nossos Serviços" como principal, adicionar "Quero REVENDER" ao lado de "Fale Conosco"

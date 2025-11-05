@@ -48,48 +48,56 @@ export default function Home() {
 
   const services = [
     {
+      id: "site",
       icon: Globe,
       title: "Site Profissional",
       description:
         "Criação de sites com a identidade da sua campanha, totalmente responsivos e otimizados para conversão.",
     },
     {
+      id: "disparos",
       icon: Megaphone,
       title: "Disparos de Mídias",
       description:
         "Divulgação de conteúdo eleitoral através de mensagens personalizadas e segmentadas para seu público.",
     },
     {
+      id: "torpedo",
       icon: Phone,
       title: "Torpedo de Voz",
       description:
         "Envio automatizado de mensagens de áudio para milhares de telefones fixos e celulares.",
     },
     {
+      id: "pesquisas",
       icon: BarChart3,
       title: "Pesquisas por Voz",
       description:
         "Pesquisas via telefone ou WhatsApp com captura automática das respostas em tempo real.",
     },
     {
+      id: "redes",
       icon: Share2,
       title: "Redes Sociais",
       description:
         "Criação, gestão e monitoramento completo das principais redes sociais da sua campanha.",
     },
     {
+      id: "jingle",
       icon: Mic,
       title: "Jingles Eleitorais",
       description:
         "Produção profissional de jingles, desde a criação das letras até a gravação final.",
     },
     {
+      id: "grafico",
       icon: Palette,
       title: "Material Gráfico",
       description:
         "Criação de folders, santinhos e materiais diversos para impressão e distribuição.",
     },
     {
+      id: "email",
       icon: Mail,
       title: "E-mail Marketing",
       description:
@@ -206,7 +214,19 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
-              <ServiceCard key={index} service={service} />
+              <ServiceCard 
+                key={index} 
+                service={service}
+                onServiceClick={(serviceId) => {
+                  // Armazenar o serviço selecionado no sessionStorage
+                  sessionStorage.setItem('preselectedService', serviceId);
+                  // Redirecionar para a calculadora
+                  const element = document.querySelector("#calculadora");
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              />
             ))}
           </div>
         </div>

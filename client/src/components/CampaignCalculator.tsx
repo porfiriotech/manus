@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Calculator, CheckCircle2 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Service {
   id: string;
@@ -84,6 +84,15 @@ export default function CampaignCalculator() {
   const [voters, setVoters] = useState<string>("");
   const [cargo, setCargo] = useState<string>("");
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
+
+  // Verificar se há um serviço pré-selecionado
+  useEffect(() => {
+    const preselectedService = sessionStorage.getItem('preselectedService');
+    if (preselectedService) {
+      setSelectedServices([preselectedService]);
+      sessionStorage.removeItem('preselectedService');
+    }
+  }, []);
 
   const handleServiceToggle = (serviceId: string) => {
     setSelectedServices((prev) =>
