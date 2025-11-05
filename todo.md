@@ -1,0 +1,35 @@
+# TODO - Político Eleito Demo
+
+## Design e Estrutura
+- [x] Configurar paleta de cores profissional (azul escuro, verde, branco)
+- [x] Configurar tipografia moderna com Google Fonts
+- [x] Criar componentes de layout (Header, Footer)
+- [x] Implementar design responsivo mobile-first
+
+## Páginas e Seções
+- [x] Hero Section moderna com CTA forte
+- [x] Seção Produtos e Serviços com cards interativos
+- [x] Seção Cases de Sucesso com depoimentos e métricas
+- [x] Seção Diferenciais com números e estatísticas
+- [x] Seção Sobre Nós com equipe e credenciais
+- [x] Formulário de Contato aprimorado com validação
+- [x] Rodapé completo com links e informações
+
+## Funcionalidades Interativas
+- [ ] Calculadora de alcance de campanha
+- [ ] Simulador de orçamento
+- [x] Animações e microinterações
+- [x] WhatsApp floating button
+- [x] Scroll suave entre seções
+
+## Conteúdo
+- [x] Textos persuasivos e orientados a resultados
+- [x] Imagens de alta qualidade
+- [x] Ícones modernos (Lucide React)
+- [x] Depoimentos de clientes
+- [x] Métricas de sucesso nos cases
+
+## Otimizações
+- [x] SEO básico (meta tags)
+- [x] Performance (lazy loading de imagens)
+- [x] Acessibilidade (ARIA labels)
