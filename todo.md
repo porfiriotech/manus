@@ -33,3 +33,12 @@
 - [x] SEO básico (meta tags)
 - [x] Performance (lazy loading de imagens)
 - [x] Acessibilidade (ARIA labels)
+
+## Bugs e Correções
+- [x] Corrigir aninhamento de tags <a> no Header (Link com <a> dentro)
+
+## Nova Funcionalidade - Calculadora
+- [x] Criar componente CampaignCalculator
+- [x] Adicionar seção de calculadora na página Home
+- [x] Implementar lógica de cálculo baseada em eleitores e serviços
+- [x] Adicionar animações e feedback visual

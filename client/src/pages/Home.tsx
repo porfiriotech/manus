@@ -9,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import CampaignCalculator from "@/components/CampaignCalculator";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -215,6 +216,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Calculator Section */}
+      <CampaignCalculator />
 
       {/* Cases Section */}
       <section id="cases" className="py-20 bg-muted/30">

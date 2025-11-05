@@ -9,6 +9,7 @@ export default function Header() {
   const navItems = [
     { label: "Home", href: "#home" },
     { label: "Serviços", href: "#servicos" },
+    { label: "Calculadora", href: "#calculadora" },
     { label: "Cases", href: "#cases" },
     { label: "Diferenciais", href: "#diferenciais" },
     { label: "Sobre", href: "#sobre" },
@@ -29,12 +30,12 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/">
-            <a className="flex items-center gap-2">
+            <div className="flex items-center gap-2 cursor-pointer">
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-xl">PE</span>
               </div>
               <span className="font-bold text-xl hidden sm:block">Político Eleito</span>
-            </a>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
