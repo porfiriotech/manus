@@ -135,7 +135,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Ferramentas que levam você à{" "}
+                Ferramentas que levam POLITICOS à{" "}
                 <span className="text-primary">vitória</span>
               </h1>
               <p className="text-lg text-foreground/70 mb-8">
