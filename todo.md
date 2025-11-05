@@ -42,3 +42,6 @@
 - [x] Adicionar seção de calculadora na página Home
 - [x] Implementar lógica de cálculo baseada em eleitores e serviços
 - [x] Adicionar animações e feedback visual
+
+## Ajustes de Design
+- [x] Rebalancear paleta de cores para dar mais destaque ao verde junto com azul
