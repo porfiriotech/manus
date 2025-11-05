@@ -12,7 +12,9 @@ import {
 import CampaignCalculator from "@/components/CampaignCalculator";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import ServiceCard from "@/components/ServiceCard";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { useState } from "react";
 import {
   Award,
   BarChart3,
@@ -28,7 +30,6 @@ import {
   TrendingUp,
   Users,
 } from "lucide-react";
-import { useState } from "react";
 import { toast } from "sonner";
 
 export default function Home() {
@@ -143,16 +144,16 @@ export default function Home() {
                 muito mais. Soluções completas para sua campanha eleitoral.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-lg px-8"
-                  onClick={() => {
-                    const element = document.querySelector("#servicos");
-                    if (element) element.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  Conheça Nossos Serviços
-                </Button>
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                onClick={() => {
+                  const element = document.querySelector("#calculadora");
+                  if (element) element.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Conheça Nossos Serviços
+              </Button>
                 <Button
                   size="lg"
                   variant="outline"
@@ -205,13 +206,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <service.icon className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-foreground/70 text-sm">{service.description}</p>
-                </CardContent>
-              </Card>
+              <ServiceCard key={index} service={service} />
             ))}
           </div>
         </div>

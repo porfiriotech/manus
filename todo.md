@@ -45,3 +45,10 @@
 
 ## Ajustes de Design
 - [x] Rebalancear paleta de cores para dar mais destaque ao verde junto com azul
+
+## Novas Funcionalidades e Melhorias
+- [x] Botão "Conheça Nossos Serviços" redirecionar para calculadora
+- [x] Cards de serviços com efeito expansível (hover/touch)
+- [x] Botão de orçamento enviar dados via WhatsApp
+- [x] Substituir logo por logomarca real do Político Eleito
+- [x] Adicionar botão "Quero REVENDER as soluções" no header

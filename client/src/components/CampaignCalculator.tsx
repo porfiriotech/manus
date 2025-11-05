@@ -274,8 +274,21 @@ export default function CampaignCalculator() {
                         size="lg"
                         className="w-full bg-secondary hover:bg-secondary/90"
                         onClick={() => {
-                          const element = document.querySelector("#contato");
-                          if (element) element.scrollIntoView({ behavior: "smooth" });
+                          const selectedServicesList = selectedServices
+                            .map((id) => services.find((s) => s.id === id)?.name)
+                            .filter(Boolean)
+                            .join(", ");
+                          
+                          const message = `Olá! Gostaria de solicitar um orçamento personalizado:\n\n` +
+                            `📄 *Dados da Campanha*\n` +
+                            `Cargo: ${cargo.replace("-", " ").toUpperCase()}\n` +
+                            `Eleitores: ${parseInt(voters).toLocaleString("pt-BR")}\n\n` +
+                            `💼 *Serviços Selecionados*\n${selectedServicesList}\n\n` +
+                            `💰 *Investimento Total Estimado*\nR$ ${total.toLocaleString("pt-BR")}\n\n` +
+                            `Aguardo retorno para mais detalhes!`;
+                          
+                          const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+                          window.open(whatsappUrl, "_blank");
                         }}
                       >
                         Solicitar Orçamento Personalizado

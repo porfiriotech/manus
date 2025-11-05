@@ -24,6 +24,12 @@ export default function Header() {
     }
   };
 
+  const handleRevendaClick = () => {
+    const message = "Olá! Tenho interesse em REVENDER as soluções do Político Eleito. Gostaria de mais informações sobre o programa de revenda.";
+    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container">
@@ -52,8 +58,16 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center gap-3">
+            <Button
+              onClick={handleRevendaClick}
+              size="lg"
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary/10"
+            >
+              Quero REVENDER
+            </Button>
             <Button
               onClick={(e) => {
                 e.preventDefault();
