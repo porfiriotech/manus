@@ -291,7 +291,7 @@ export default function CampaignCalculator() {
 
                           // Redirecionar para WhatsApp
                           window.open(
-                            `https://wa.me/5562986242185?text=${message}`,
+                            `https://api.whatsapp.com/send?phone=5562986242185&text=${message}`,
                             "_blank"
                           );
                         }}

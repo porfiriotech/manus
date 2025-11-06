@@ -4,7 +4,7 @@ export default function WhatsAppButton() {
   const phoneNumber = "5534991959389";
   const message = "Olá! Gostaria de saber mais sobre os serviços de marketing eleitoral.";
   
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
   return (
     <a

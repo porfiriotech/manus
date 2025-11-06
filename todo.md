@@ -66,3 +66,6 @@
 ## Novas Melhorias
 - [x] Transformar seção de Produtos e Serviços em cards expansíveis (hover)
 - [x] Modificar botão de orçamento para gerar texto e redirecionar para WhatsApp (55 62 98624-2185)
+
+## Correção de Compatibilidade WhatsApp
+- [x] Alterar URLs do WhatsApp de wa.me para api.whatsapp.com para melhor compatibilidade com WhatsApp Business no iOS
