@@ -12,9 +12,7 @@ import {
 import CampaignCalculator from "@/components/CampaignCalculator";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import ServiceCard from "@/components/ServiceCard";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { useState } from "react";
 import {
   Award,
   BarChart3,
@@ -30,6 +28,7 @@ import {
   TrendingUp,
   Users,
 } from "lucide-react";
+import { useState } from "react";
 import { toast } from "sonner";
 
 export default function Home() {
@@ -48,56 +47,48 @@ export default function Home() {
 
   const services = [
     {
-      id: "site",
       icon: Globe,
       title: "Site Profissional",
       description:
         "Criação de sites com a identidade da sua campanha, totalmente responsivos e otimizados para conversão.",
     },
     {
-      id: "disparos",
       icon: Megaphone,
       title: "Disparos de Mídias",
       description:
         "Divulgação de conteúdo eleitoral através de mensagens personalizadas e segmentadas para seu público.",
     },
     {
-      id: "torpedo",
       icon: Phone,
       title: "Torpedo de Voz",
       description:
         "Envio automatizado de mensagens de áudio para milhares de telefones fixos e celulares.",
     },
     {
-      id: "pesquisas",
       icon: BarChart3,
       title: "Pesquisas por Voz",
       description:
         "Pesquisas via telefone ou WhatsApp com captura automática das respostas em tempo real.",
     },
     {
-      id: "redes",
       icon: Share2,
       title: "Redes Sociais",
       description:
         "Criação, gestão e monitoramento completo das principais redes sociais da sua campanha.",
     },
     {
-      id: "jingle",
       icon: Mic,
       title: "Jingles Eleitorais",
       description:
         "Produção profissional de jingles, desde a criação das letras até a gravação final.",
     },
     {
-      id: "grafico",
       icon: Palette,
       title: "Material Gráfico",
       description:
         "Criação de folders, santinhos e materiais diversos para impressão e distribuição.",
     },
     {
-      id: "email",
       icon: Mail,
       title: "E-mail Marketing",
       description:
@@ -144,7 +135,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Ferramentas que levam POLITICOS à{" "}
+                Ferramentas que levam você à{" "}
                 <span className="text-primary">vitória</span>
               </h1>
               <p className="text-lg text-foreground/70 mb-8">
@@ -152,16 +143,16 @@ export default function Home() {
                 muito mais. Soluções completas para sua campanha eleitoral.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                onClick={() => {
-                  const element = document.querySelector("#calculadora");
-                  if (element) element.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                Conheça Nossos Serviços
-              </Button>
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-lg px-8"
+                  onClick={() => {
+                    const element = document.querySelector("#servicos");
+                    if (element) element.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  Conheça Nossos Serviços
+                </Button>
                 <Button
                   size="lg"
                   variant="outline"
@@ -214,19 +205,13 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
-              <ServiceCard 
-                key={index} 
-                service={service}
-                onServiceClick={(serviceId) => {
-                  // Armazenar o serviço selecionado no sessionStorage
-                  sessionStorage.setItem('preselectedService', serviceId);
-                  // Redirecionar para a calculadora
-                  const element = document.querySelector("#calculadora");
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-              />
+              <Card key={index} className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <service.icon className="w-12 h-12 text-primary mb-4" />
+                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                  <p className="text-foreground/70 text-sm">{service.description}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>

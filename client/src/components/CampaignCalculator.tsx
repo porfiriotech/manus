@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Calculator, CheckCircle2 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface Service {
   id: string;
@@ -84,15 +84,6 @@ export default function CampaignCalculator() {
   const [voters, setVoters] = useState<string>("");
   const [cargo, setCargo] = useState<string>("");
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
-
-  // Verificar se há um serviço pré-selecionado
-  useEffect(() => {
-    const preselectedService = sessionStorage.getItem('preselectedService');
-    if (preselectedService) {
-      setSelectedServices([preselectedService]);
-      sessionStorage.removeItem('preselectedService');
-    }
-  }, []);
 
   const handleServiceToggle = (serviceId: string) => {
     setSelectedServices((prev) =>
@@ -283,21 +274,8 @@ export default function CampaignCalculator() {
                         size="lg"
                         className="w-full bg-secondary hover:bg-secondary/90"
                         onClick={() => {
-                          const selectedServicesList = selectedServices
-                            .map((id) => services.find((s) => s.id === id)?.name)
-                            .filter(Boolean)
-                            .join(", ");
-                          
-                          const message = `Olá! Gostaria de solicitar um orçamento personalizado:\n\n` +
-                            `📄 *Dados da Campanha*\n` +
-                            `Cargo: ${cargo.replace("-", " ").toUpperCase()}\n` +
-                            `Eleitores: ${parseInt(voters).toLocaleString("pt-BR")}\n\n` +
-                            `💼 *Serviços Selecionados*\n${selectedServicesList}\n\n` +
-                            `💰 *Investimento Total Estimado*\nR$ ${total.toLocaleString("pt-BR")}\n\n` +
-                            `Aguardo retorno para mais detalhes!`;
-                          
-                          const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
-                          window.open(whatsappUrl, "_blank");
+                          const element = document.querySelector("#contato");
+                          if (element) element.scrollIntoView({ behavior: "smooth" });
                         }}
                       >
                         Solicitar Orçamento Personalizado
