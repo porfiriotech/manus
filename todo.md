@@ -16,8 +16,8 @@
 - [x] Rodapé completo com links e informações
 
 ## Funcionalidades Interativas
-- [ ] Calculadora de alcance de campanha
-- [ ] Simulador de orçamento
+- [x] Calculadora de alcance de campanha
+- [x] Simulador de orçamento
 - [x] Animações e microinterações
 - [x] WhatsApp floating button
 - [x] Scroll suave entre seções
@@ -46,7 +46,7 @@
 ## Correção do Erro 127 no Vercel
 - [x] Mover Vite de devDependencies para dependencies
 - [x] Verificar e corrigir configurações de build
-- [ ] Testar deploy no Vercel
+- [x] Testar deploy no Vercel
 
 ## Reorganização Completa para Deploy no Vercel
 - [x] Criar nova branch limpa
