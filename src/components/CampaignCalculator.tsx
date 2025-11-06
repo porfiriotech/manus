@@ -224,17 +224,19 @@ export default function CampaignCalculator() {
                     {services.map((service) => (
                       <div
                         key={service.id}
-                        className="flex items-start space-x-3 p-3 rounded-lg hover:bg-muted/50 transition-colors"
+                        onClick={() => handleServiceToggle(service.id)}
+                        className="flex items-start space-x-3 p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer border-2 border-transparent hover:border-primary/20"
                       >
                         <Checkbox
                           id={service.id}
                           checked={selectedServices.includes(service.id)}
                           onCheckedChange={() => handleServiceToggle(service.id)}
+                          onClick={(e) => e.stopPropagation()}
                         />
                         <div className="flex-1">
                           <label
                             htmlFor={service.id}
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                            className="text-sm font-medium leading-none cursor-pointer"
                           >
                             {service.name}
                           </label>

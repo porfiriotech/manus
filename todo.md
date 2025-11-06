@@ -80,3 +80,10 @@
 
 ## Efeito Visual de Destaque
 - [x] Implementar animação de destaque na calculadora ao ser redirecionado
+
+## Scroll Suave
+- [x] Implementar scroll suave global no CSS
+- [x] Verificar todos os links de navegação interna
+
+## Melhoria de UX na Calculadora
+- [x] Expandir área clicável dos serviços para todo o card (não apenas o checkbox)
