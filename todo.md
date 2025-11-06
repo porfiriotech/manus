@@ -69,3 +69,8 @@
 
 ## Correção de Compatibilidade WhatsApp
 - [x] Alterar URLs do WhatsApp de wa.me para api.whatsapp.com para melhor compatibilidade com WhatsApp Business no iOS
+
+## Implementação de Envio de Email
+- [x] Instalar dependência @emailjs/browser
+- [x] Implementar envio de email no formulário de contato
+- [x] Criar documentação de configuração do EmailJS

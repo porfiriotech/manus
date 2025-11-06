@@ -31,6 +31,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import emailjs from "@emailjs/browser";
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -39,11 +40,47 @@ export default function Home() {
     cidade: "",
     cargo: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Mensagem enviada com sucesso! Entraremos em contato em breve.");
-    setFormData({ nome: "", celular: "", cidade: "", cargo: "" });
+    setIsSubmitting(true);
+
+    try {
+      // Configurações do EmailJS (a serem preenchidas pelo usuário)
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID";
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID";
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY";
+
+      // Verificar se as credenciais estão configuradas
+      if (serviceId === "YOUR_SERVICE_ID" || templateId === "YOUR_TEMPLATE_ID" || publicKey === "YOUR_PUBLIC_KEY") {
+        toast.error("EmailJS não configurado. Por favor, configure as credenciais.");
+        console.error("EmailJS credentials not configured. Please check EMAILJS_CONFIG.md");
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Preparar dados do template
+      const templateParams = {
+        from_name: formData.nome,
+        from_phone: formData.celular,
+        from_city: formData.cidade,
+        cargo: formData.cargo,
+        to_email: "portaldamaceno@gmail.com",
+        reply_to: "portaldamaceno@gmail.com",
+      };
+
+      // Enviar email via EmailJS
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      toast.success("Mensagem enviada com sucesso! Entraremos em contato em breve.");
+      setFormData({ nome: "", celular: "", cidade: "", cargo: "" });
+    } catch (error) {
+      console.error("Erro ao enviar email:", error);
+      toast.error("Erro ao enviar mensagem. Por favor, tente novamente ou entre em contato via WhatsApp.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const services = [
@@ -453,8 +490,13 @@ export default function Home() {
                     </Select>
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full bg-secondary hover:bg-secondary/90">
-                    Enviar Mensagem
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full bg-secondary hover:bg-secondary/90"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
                   </Button>
                 </form>
               </CardContent>
