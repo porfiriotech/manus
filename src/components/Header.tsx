@@ -31,10 +31,11 @@ export default function Header() {
           {/* Logo */}
           <Link href="/">
             <div className="flex items-center gap-2 cursor-pointer">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">PE</span>
-              </div>
-              <span className="font-bold text-xl hidden sm:block">Político Eleito</span>
+              <img 
+                src="/Politico-eleito-logo.svg" 
+                alt="Político Eleito" 
+                className="h-12 w-auto"
+              />
             </div>
           </Link>
 

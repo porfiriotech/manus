@@ -58,3 +58,7 @@
 - [x] Remover vercel.json (deixar Vercel detectar automaticamente)
 - [x] Testar build local
 - [x] Push e verificar deploy
+
+## Ajustes Finais
+- [x] Substituir logo pela logomarca real do Político Eleito
+- [x] Adicionar "Versão DEMO - Desenvolvida por porfiriotech" no rodapé

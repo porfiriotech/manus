@@ -97,9 +97,20 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
+        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center space-y-2">
           <p className="text-primary-foreground/60 text-sm">
             © {currentYear} Político Eleito. Todos os direitos reservados.
+          </p>
+          <p className="text-primary-foreground/50 text-xs">
+            Versão DEMO - Desenvolvida por{" "}
+            <a 
+              href="https://github.com/porfiriotech" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary-foreground/70 hover:text-primary-foreground transition-colors font-medium"
+            >
+              porfiriotech
+            </a>
           </p>
         </div>
       </div>
