@@ -74,3 +74,6 @@
 - [x] Instalar dependência @emailjs/browser
 - [x] Implementar envio de email no formulário de contato
 - [x] Criar documentação de configuração do EmailJS
+
+## Ajuste de Navegação
+- [x] Corrigir botão "Conheça Nossos Serviços" para redirecionar para a calculadora

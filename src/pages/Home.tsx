@@ -241,7 +241,7 @@ export default function Home() {
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-lg px-8"
                   onClick={() => {
-                    const element = document.querySelector("#servicos");
+                    const element = document.querySelector("#calculadora");
                     if (element) element.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
