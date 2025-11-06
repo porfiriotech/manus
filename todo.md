@@ -87,3 +87,11 @@
 
 ## Melhoria de UX na Calculadora
 - [x] Expandir área clicável dos serviços para todo o card (não apenas o checkbox)
+
+## Deploy GitHub e Vercel
+- [ ] Verificar configurações de build (package.json)
+- [ ] Criar arquivo .gitignore adequado
+- [ ] Inicializar repositório Git
+- [ ] Criar repositório no GitHub
+- [ ] Fazer push para GitHub
+- [ ] Documentar processo de deploy no Vercel
