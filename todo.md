@@ -77,3 +77,6 @@
 
 ## Ajuste de Navegação
 - [x] Corrigir botão "Conheça Nossos Serviços" para redirecionar para a calculadora
+
+## Efeito Visual de Destaque
+- [x] Implementar animação de destaque na calculadora ao ser redirecionado

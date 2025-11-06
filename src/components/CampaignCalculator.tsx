@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Calculator, CheckCircle2 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Service {
   id: string;
@@ -81,9 +81,51 @@ const services: Service[] = [
 ];
 
 export default function CampaignCalculator() {
-  const [voters, setVoters] = useState<string>("");
-  const [cargo, setCargo] = useState<string>("");
+  const [cargo, setCargo] = useState("");
+  const [voters, setVoters] = useState("");
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [isHighlighted, setIsHighlighted] = useState(false);
+
+  // Detectar quando a seção é acessada via scroll
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === "#calculadora") {
+        setIsHighlighted(true);
+        setTimeout(() => setIsHighlighted(false), 2000);
+      }
+    };
+
+    // Observar quando a seção entra na viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            // Verificar se foi um scroll intencional (não o carregamento inicial)
+            const scrollY = window.scrollY;
+            if (scrollY > 300) {
+              setIsHighlighted(true);
+              setTimeout(() => setIsHighlighted(false), 2000);
+            }
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    const section = document.querySelector("#calculadora");
+    if (section) {
+      observer.observe(section);
+    }
+
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
 
   const handleServiceToggle = (serviceId: string) => {
     setSelectedServices((prev) =>
@@ -111,13 +153,22 @@ export default function CampaignCalculator() {
   const hasInputs = voters && cargo && selectedServices.length > 0;
 
   return (
-    <section id="calculadora" className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
+    <section 
+      id="calculadora" 
+      className={`py-20 bg-gradient-to-br from-primary/5 to-secondary/5 transition-all duration-500 ${
+        isHighlighted ? "ring-4 ring-primary/50 ring-offset-4 shadow-2xl" : ""
+      }`}
+    >
       <div className="container">
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
             <Calculator className="w-8 h-8 text-primary" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Calculadora de Campanha</h2>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-4 transition-all duration-300 ${
+            isHighlighted ? "scale-105 text-primary" : ""
+          }`}>
+            Calculadora de Campanha
+          </h2>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             Estime o investimento necessário para sua campanha eleitoral com base no número de
             eleitores e serviços desejados.
