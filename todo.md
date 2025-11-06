@@ -42,3 +42,19 @@
 - [x] Adicionar seção de calculadora na página Home
 - [x] Implementar lógica de cálculo baseada em eleitores e serviços
 - [x] Adicionar animações e feedback visual
+
+## Correção do Erro 127 no Vercel
+- [x] Mover Vite de devDependencies para dependencies
+- [x] Verificar e corrigir configurações de build
+- [ ] Testar deploy no Vercel
+
+## Reorganização Completa para Deploy no Vercel
+- [x] Criar nova branch limpa
+- [x] Mover todos os arquivos de client/ para raiz
+- [x] Remover pastas server/ e shared/
+- [x] Atualizar tsconfig.json para nova estrutura
+- [x] Atualizar vite.config.ts para nova estrutura
+- [x] Garantir Vite em dependencies
+- [x] Remover vercel.json (deixar Vercel detectar automaticamente)
+- [x] Testar build local
+- [x] Push e verificar deploy
