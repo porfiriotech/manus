@@ -274,8 +274,26 @@ export default function CampaignCalculator() {
                         size="lg"
                         className="w-full bg-secondary hover:bg-secondary/90"
                         onClick={() => {
-                          const element = document.querySelector("#contato");
-                          if (element) element.scrollIntoView({ behavior: "smooth" });
+                          // Gerar texto do orçamento
+                          const selectedServicesList = selectedServices
+                            .map((serviceId) => {
+                              const service = services.find((s) => s.id === serviceId);
+                              if (!service) return "";
+                              const voterCount = parseInt(voters) || 0;
+                              const serviceCost =
+                                service.basePrice + service.pricePerVoter * voterCount;
+                              return `• ${service.name}: R$ ${serviceCost.toLocaleString("pt-BR")}`;
+                            })
+                            .filter(Boolean)
+                            .join("%0A");
+
+                          const message = `Olá! Gostaria de solicitar um orçamento personalizado:%0A%0A*Cargo:* ${cargo.replace("-", " ")}%0A*Número de Eleitores:* ${parseInt(voters).toLocaleString("pt-BR")}%0A%0A*Serviços Selecionados:*%0A${selectedServicesList}%0A%0A*Investimento Total Estimado:* R$ ${total.toLocaleString("pt-BR")}%0A%0AAguardo retorno para mais detalhes!`;
+
+                          // Redirecionar para WhatsApp
+                          window.open(
+                            `https://wa.me/5562986242185?text=${message}`,
+                            "_blank"
+                          );
                         }}
                       >
                         Solicitar Orçamento Personalizado

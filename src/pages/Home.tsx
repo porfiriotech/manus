@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import CampaignCalculator from "@/components/CampaignCalculator";
+import ExpandableServiceCard from "@/components/ExpandableServiceCard";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -51,48 +52,104 @@ export default function Home() {
       title: "Site Profissional",
       description:
         "Criação de sites com a identidade da sua campanha, totalmente responsivos e otimizados para conversão.",
+      details: [
+        "Design personalizado com as cores da campanha",
+        "Responsivo para mobile, tablet e desktop",
+        "Integração com redes sociais",
+        "Formulário de contato e captação de apoiadores",
+        "Otimização para mecanismos de busca (SEO)",
+      ],
     },
     {
       icon: Megaphone,
       title: "Disparos de Mídias",
       description:
         "Divulgação de conteúdo eleitoral através de mensagens personalizadas e segmentadas para seu público.",
+      details: [
+        "Envio de imagens, vídeos e áudios",
+        "Segmentação por região, idade e perfil",
+        "Relatórios de entrega em tempo real",
+        "Agendamento de disparos",
+        "Suporte técnico especializado",
+      ],
     },
     {
       icon: Phone,
       title: "Torpedo de Voz",
       description:
         "Envio automatizado de mensagens de áudio para milhares de telefones fixos e celulares.",
+      details: [
+        "Mensagens de até 3 minutos",
+        "Envio para telefones fixos e celulares",
+        "Confirmação de escuta",
+        "Relatórios detalhados de alcance",
+        "Gravação profissional inclusa",
+      ],
     },
     {
       icon: BarChart3,
       title: "Pesquisas por Voz",
       description:
         "Pesquisas via telefone ou WhatsApp com captura automática das respostas em tempo real.",
+      details: [
+        "Questionários personalizados",
+        "Coleta de dados em tempo real",
+        "Relatórios gráficos e estatísticos",
+        "Segmentação por perfil de eleitor",
+        "Exportação de dados para análise",
+      ],
     },
     {
       icon: Share2,
       title: "Redes Sociais",
       description:
         "Criação, gestão e monitoramento completo das principais redes sociais da sua campanha.",
+      details: [
+        "Criação de conteúdo diário",
+        "Gestão de Facebook, Instagram e TikTok",
+        "Monitoramento de comentários e mensagens",
+        "Relatórios de engajamento",
+        "Campanhas de tráfego pago",
+      ],
     },
     {
       icon: Mic,
       title: "Jingles Eleitorais",
       description:
         "Produção profissional de jingles, desde a criação das letras até a gravação final.",
+      details: [
+        "Composição de letra personalizada",
+        "Arranjo musical profissional",
+        "Gravação em estúdio",
+        "Mixagem e masterização",
+        "Versões para rádio, carro de som e redes sociais",
+      ],
     },
     {
       icon: Palette,
       title: "Material Gráfico",
       description:
         "Criação de folders, santinhos e materiais diversos para impressão e distribuição.",
+      details: [
+        "Santinhos, folders e adesivos",
+        "Banners e outdoors",
+        "Material para carros de som",
+        "Camisetas e bonés",
+        "Arquivos prontos para impressão",
+      ],
     },
     {
       icon: Mail,
       title: "E-mail Marketing",
       description:
         "Criação de campanhas de e-mail marketing com design profissional e alta taxa de abertura.",
+      details: [
+        "Templates personalizados",
+        "Segmentação de listas",
+        "Automação de envios",
+        "Relatórios de abertura e cliques",
+        "Integração com landing pages",
+      ],
     },
   ];
 
@@ -205,13 +262,13 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <service.icon className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-foreground/70 text-sm">{service.description}</p>
-                </CardContent>
-              </Card>
+              <ExpandableServiceCard
+                key={index}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                details={service.details}
+              />
             ))}
           </div>
         </div>

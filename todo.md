@@ -62,3 +62,7 @@
 ## Ajustes Finais
 - [x] Substituir logo pela logomarca real do Político Eleito
 - [x] Adicionar "Versão DEMO - Desenvolvida por porfiriotech" no rodapé
+
+## Novas Melhorias
+- [x] Transformar seção de Produtos e Serviços em cards expansíveis (hover)
+- [x] Modificar botão de orçamento para gerar texto e redirecionar para WhatsApp (55 62 98624-2185)
